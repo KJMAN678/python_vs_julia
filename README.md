@@ -1,8 +1,11 @@
 # python_vs_julia
+
+kaggle の[タイタニックのデータセット](https://www.kaggle.com/c/titanic/data)を使って python と julia の処理速度を比較しています。
+
 01 python.ipynb python のコード  
 02 julia.ipynb julia のコード  
 
-ざっくりとしたコードの流れ
+## ざっくりとしたコードの流れ
 
 - データの読込  
 - 統計量の表示  
@@ -26,6 +29,31 @@ import pandas as pd
 ##### julia
 ```julia
 using DataFrames
+```
+
+#### 経過時間の計測
+###### python
+```python
+import time
+
+# 開始時点
+start = time.time()
+
+# 終了時点
+elapsed_time = time.time() - start
+print(elapsed_time)
+```
+
+###### julia
+```julia
+using Dates
+
+# 開始時点
+Dates.now() - start
+
+# 終了時点
+elapsed_time = Dates.now() - start
+println(elapsed_time)
 ```
 
 #### csv の読込
